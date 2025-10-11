@@ -247,5 +247,5 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ className = "" }) => {
     </div>
   );
 };
-   
+
 export default TaskBoard;
