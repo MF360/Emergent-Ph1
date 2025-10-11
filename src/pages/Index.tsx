@@ -4,6 +4,7 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
+import DashboardPreview from "../components/DashboardPreview";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
         <HeroSection />
         <Features />
         <Testimonials />
+        <DashboardPreview />
         <Pricing />
       </main>
       <Footer />
