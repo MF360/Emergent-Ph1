@@ -5,21 +5,21 @@ const Testimonials = () => {
         "MF360 transformed how I manage my 200+ clients. The AI insights help me give better recommendations, and my AUM has grown 35% in just six months.",
       author: "Rajesh Kumar",
       position: "Senior Mutual Fund Distributor, Mumbai",
-      avatar: "bg-cosmic-light/30",
+      avatar: "bg-muted/30",
     },
     {
       quote:
         "The CRM and automated reminders mean I never miss a client follow-up. Portfolio analytics are instant, and my clients love the personalized reports.",
       author: "Priya Sharma",
       position: "Independent Financial Advisor",
-      avatar: "bg-cosmic-light/20",
+      avatar: "bg-muted/20",
     },
     {
       quote:
         "Transaction processing is fast, compliant, and effortless. The dashboard gives me real-time insights into revenue and client performance — exactly what MFDs need.",
       author: "Amit Patel",
       position: "Wealth Manager, Bangalore",
-      avatar: "bg-cosmic-light/40",
+      avatar: "bg-muted/40",
     },
   ];
 

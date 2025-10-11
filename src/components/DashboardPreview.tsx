@@ -32,43 +32,43 @@ const DashboardPreview = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
             Intuitive task management interface
           </h2>
-          <p className="text-cosmic-muted text-lg">
+          <p className="text-muted-foreground text-lg">
             A powerful dashboard that adapts to how your team works
           </p>
         </div>
 
         <div
-          className={`cosmic-glow relative rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm bg-cosmic-darker/70 shadow-[0_0_15px_rgba(203,255,77,0.15)] transition-all duration-1000 delay-300 ${
+          className={`cosmic-glow relative rounded-xl overflow-hidden border border-border backdrop-blur-sm bg-card/70 shadow-lg transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
           {/* Mock Dashboard */}
-          <div className="bg-cosmic-darker/80 backdrop-blur-md w-full">
+          <div className="bg-card/80 backdrop-blur-md w-full">
             {/* Dashboard Header */}
-            <div className="flex items-center justify-between p-4 border-b border-cosmic-light/10">
+            <div className="flex items-center justify-between p-4 border-b border-border">
               <div className="flex items-center gap-4">
-                <div className="h-8 w-8 rounded-md bg-cosmic-light/20 flex items-center justify-center">
-                  <div className="h-3 w-3 rounded-sm bg-cosmic-accent"></div>
+                <div className="h-8 w-8 rounded-md bg-muted/20 flex items-center justify-center">
+                  <div className="h-3 w-3 rounded-sm bg-primary"></div>
                 </div>
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   Marketing Campaign Q2
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  <div className="h-8 w-8 rounded-full bg-cosmic-light/30 border-2 border-cosmic-darker"></div>
-                  <div className="h-8 w-8 rounded-full bg-cosmic-light/20 border-2 border-cosmic-darker"></div>
-                  <div className="h-8 w-8 rounded-full bg-cosmic-light/40 border-2 border-cosmic-darker"></div>
-                  <div className="h-8 w-8 rounded-full bg-cosmic-accent/20 border-2 border-cosmic-darker flex items-center justify-center text-xs text-cosmic-accent">
+                  <div className="h-8 w-8 rounded-full bg-muted/30 border-2 border-card"></div>
+                  <div className="h-8 w-8 rounded-full bg-muted/20 border-2 border-card"></div>
+                  <div className="h-8 w-8 rounded-full bg-muted/40 border-2 border-card"></div>
+                  <div className="h-8 w-8 rounded-full bg-primary/20 border-2 border-card flex items-center justify-center text-xs text-primary">
                     +3
                   </div>
                 </div>
 
-                <div className="h-8 px-3 rounded-md bg-cosmic-light/10 flex items-center justify-center text-white text-sm">
+                <div className="h-8 px-3 rounded-md bg-muted/10 flex items-center justify-center text-foreground text-sm">
                   Share
                 </div>
               </div>
@@ -77,45 +77,45 @@ const DashboardPreview = () => {
             {/* Dashboard Content */}
             <div className="flex h-[500px] overflow-hidden">
               {/* Sidebar */}
-              <div className="w-64 border-r border-cosmic-light/10 p-4 space-y-4">
+              <div className="w-64 border-r border-border p-4 space-y-4">
                 <div className="space-y-2">
-                  <div className="text-xs text-cosmic-muted uppercase">
+                  <div className="text-xs text-muted-foreground uppercase">
                     Navigation
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-cosmic-light/10 text-white">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-accent"></div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-muted/10 text-foreground">
+                      <div className="h-3 w-3 rounded-sm bg-primary"></div>
                       <span>Board</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                       <span>Timeline</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                       <span>Calendar</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                       <span>Files</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2 pt-4">
-                  <div className="text-xs text-cosmic-muted uppercase">
+                  <div className="text-xs text-muted-foreground uppercase">
                     Teams
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-cosmic-accent/80"></div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
+                      <div className="h-3 w-3 rounded-full bg-primary/80"></div>
                       <span>Marketing</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
                       <div className="h-3 w-3 rounded-full bg-purple-400/80"></div>
                       <span>Design</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/5">
                       <div className="h-3 w-3 rounded-full bg-blue-400/80"></div>
                       <span>Development</span>
                     </div>
@@ -128,14 +128,14 @@ const DashboardPreview = () => {
                 {/* Board Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-medium">Tasks</h3>
-                    <span className="text-xs bg-cosmic-light/20 px-2 py-1 rounded-full text-cosmic-muted">
+                    <h3 className="font-medium text-foreground">Tasks</h3>
+                    <span className="text-xs bg-muted/20 px-2 py-1 rounded-full text-muted-foreground">
                       23
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-md bg-cosmic-light/10 flex items-center justify-center text-cosmic-muted">
+                    <div className="h-8 w-8 rounded-md bg-muted/10 flex items-center justify-center text-muted-foreground">
                       <svg
                         width="16"
                         height="16"
@@ -152,7 +152,7 @@ const DashboardPreview = () => {
                         />
                       </svg>
                     </div>
-                    <div className="h-8 w-8 rounded-md bg-cosmic-light/10 flex items-center justify-center text-cosmic-muted">
+                    <div className="h-8 w-8 rounded-md bg-muted/10 flex items-center justify-center text-muted-foreground">
                       <svg
                         width="16"
                         height="16"
@@ -176,7 +176,7 @@ const DashboardPreview = () => {
                         />
                       </svg>
                     </div>
-                    <div className="h-8 px-3 rounded-md bg-cosmic-accent text-cosmic-darker flex items-center justify-center text-sm font-medium">
+                    <div className="h-8 px-3 rounded-md bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">
                       New Task
                     </div>
                   </div>

@@ -16,7 +16,7 @@ const Features = () => {
         "Store and manage investor profiles, track conversations, set reminders, segment clients.",
       expandedDescription:
         "Never lose touch — nurture relationships at scale. Keep all client data in one place, automate follow-ups, and manage every investor with full transparency and organization.",
-      icon: <Layers size={24} className="text-cosmic-accent" />,
+      icon: <Layers size={24} className="text-primary" />,
     },
     {
       title: "AI-Driven Analysis & Insights",
@@ -24,7 +24,7 @@ const Features = () => {
         "Instantly evaluate portfolios, risk scores, and get investment recommendations.",
       expandedDescription:
         "Make data-backed decisions with AI-powered analytics. Gain insights into portfolio health, performance trends, and client behavior to deliver timely, personalized advice.",
-      icon: <Grid3x3 size={24} className="text-cosmic-accent" />,
+      icon: <Grid3x3 size={24} className="text-primary" />,
     },
     {
       title: "Seamless Transaction Engine",
@@ -32,7 +32,7 @@ const Features = () => {
         "Place buy, sell, and switch orders directly with built-in compliance & security.",
       expandedDescription:
         "Save time, reduce errors, and ensure SEBI/AMFI compliance. Execute transactions effortlessly and track full audit trails for every order — all within MF360.",
-      icon: <LayoutDashboard size={24} className="text-cosmic-accent" />,
+      icon: <LayoutDashboard size={24} className="text-primary" />,
     },
   ];
 
@@ -47,10 +47,10 @@ const Features = () => {
     >
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
             Complete Distribution Platform
           </h2>
-          <p className="text-cosmic-muted text-lg">
+          <p className="text-muted-foreground text-lg">
             Integrated CRM, analytics, and transaction management designed for
             mutual fund distributors.
           </p>
@@ -64,29 +64,29 @@ const Features = () => {
               onOpenChange={() => toggleFeature(index)}
               className={`rounded-xl border ${
                 openFeature === index
-                  ? "border-cosmic-light/40"
-                  : "border-cosmic-light/20"
-              } cosmic-gradient transition-all duration-300`}
+                  ? "border-primary/40"
+                  : "border-border"
+              } bg-card transition-all duration-300`}
             >
               <CollapsibleTrigger className="w-full text-left p-6 flex flex-col">
                 <div className="flex justify-between items-start">
-                  <div className="h-16 w-16 rounded-full bg-cosmic-light/10 flex items-center justify-center mb-6">
+                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                     {feature.icon}
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 text-cosmic-muted transition-transform duration-200 ${
+                    className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
                       openFeature === index ? "rotate-180" : ""
                     }`}
                   />
                 </div>
-                <h3 className="text-xl font-medium tracking-tighter mb-3">
+                <h3 className="text-xl font-medium tracking-tighter mb-3 text-foreground">
                   {feature.title}
                 </h3>
-                <p className="text-cosmic-muted">{feature.description}</p>
+                <p className="text-muted-foreground">{feature.description}</p>
               </CollapsibleTrigger>
               <CollapsibleContent className="px-6 pb-6 pt-2">
-                <div className="pt-3 border-t border-cosmic-light/10">
-                  <p className="text-cosmic-muted">
+                <div className="pt-3 border-t border-border">
+                  <p className="text-muted-foreground">
                     {feature.expandedDescription}
                   </p>
                 </div>
