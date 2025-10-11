@@ -156,7 +156,7 @@ interface TaskBoardProps {
   className?: string;
 }
 
-const TaskBoard: React.FC<TaskBoardProps> = ({ className }) => {
+const TaskBoard: React.FC<TaskBoardProps> = ({ className = "" }) => {
   const [columns, setColumns] = useState<Column[]>(initialColumns);
   const [draggedTask, setDraggedTask] = useState<Task | null>(null);
   const { toast } = useToast();
@@ -227,7 +227,11 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ className }) => {
   };
 
   return (
-    <div className={`flex gap-4 overflow-x-auto pb-4 ${className}`}>
+    <div
+      className={`flex gap-4 overflow-x-auto pb-4${
+        className ? ` ${className}` : ""
+      }`}
+    >
       {columns.map((column) => (
         <TaskColumn
           key={column.id}
@@ -242,6 +246,7 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ className }) => {
       ))}
     </div>
   );
+};
 };
 
 export default TaskBoard;
