@@ -37,7 +37,7 @@
     --radius: 0.5rem;
   }
 
-  .light-mode {
+  .light {
     --background: 0 0% 98%; /* Very light grey */
     --foreground: 0 0% 20%; /* Dark grey */
 
@@ -85,7 +85,7 @@
     );
   }
 
-  .light-mode .cosmic-gradient {
+  .light .cosmic-gradient {
     background: linear-gradient(
       135deg,
       rgba(230, 230, 230, 0.8) 0%,
@@ -113,7 +113,7 @@
     border-radius: inherit;
   }
 
-  .light-mode .cosmic-glow::before {
+  .light .cosmic-glow::before {
     background: radial-gradient(
       circle at center,
       rgba(64, 64, 64, 0.08) 0%,
@@ -130,7 +130,7 @@
     background-size: 30px 30px;
   }
 
-  .light-mode .cosmic-grid {
+  .light .cosmic-grid {
     background-image: linear-gradient(
         rgba(64, 64, 64, 0.08) 1px,
         transparent 1px
@@ -146,7 +146,7 @@
     @apply backdrop-blur-sm bg-card border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)];
   }
 
-  .light-mode .cosmic-glass {
+  .light .cosmic-glass {
     @apply backdrop-blur-sm bg-card border border-black/10 shadow-[0_0_15px_rgba(0,0,0,0.05)];
   }
 
@@ -175,7 +175,7 @@
     transition: filter 0.3s ease;
   }
 
-  .light-mode .icon-glow {
+  .light .icon-glow {
     filter: drop-shadow(0 0 6px rgba(64, 64, 64, 0.2));
   }
 
@@ -183,7 +183,7 @@
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
   }
 
-  .light-mode .collapsible-trigger:hover .icon-glow {
+  .light .collapsible-trigger:hover .icon-glow {
     filter: drop-shadow(0 0 10px rgba(64, 64, 64, 0.3));
   }
 

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useTheme } from "next-themes";
 import Logo from "./Logo";
 import {
   Menu,
@@ -17,18 +18,7 @@ import { Button } from "./ui/button";
 const Header = () => {
   const [activePage, setActivePage] = useState("features");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
-
-  useEffect(() => {
-    // Apply the theme to the document when it changes
-    if (isDarkMode) {
-      document.documentElement.classList.remove("light-mode");
-      document.documentElement.classList.add("dark-mode");
-    } else {
-      document.documentElement.classList.remove("dark-mode");
-      document.documentElement.classList.add("light-mode");
-    }
-  }, [isDarkMode]);
+  const { theme, setTheme } = useTheme();
 
   const handleNavClick = (page: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -45,7 +35,7 @@ const Header = () => {
   };
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -158,18 +148,18 @@ const Header = () => {
                   <Moon
                     size={16}
                     className={`${
-                      isDarkMode ? "text-primary" : "text-muted-foreground"
+                      theme === "dark" ? "text-primary" : "text-muted-foreground"
                     }`}
                   />
                   <Switch
-                    checked={!isDarkMode}
+                    checked={theme === "dark"}
                     onCheckedChange={toggleTheme}
                     className="data-[state=checked]:bg-primary"
                   />
                   <Sun
                     size={16}
                     className={`${
-                      !isDarkMode ? "text-primary" : "text-muted-foreground"
+                      theme === "light" ? "text-primary" : "text-muted-foreground"
                     }`}
                   />
                 </div>
@@ -184,18 +174,18 @@ const Header = () => {
             <Moon
               size={18}
               className={`${
-                isDarkMode ? "text-primary" : "text-muted-foreground"
+                theme === "dark" ? "text-primary" : "text-muted-foreground"
               }`}
             />
             <Switch
-              checked={!isDarkMode}
+              checked={theme === "dark"}
               onCheckedChange={toggleTheme}
               className="data-[state=checked]:bg-primary"
             />
             <Sun
               size={18}
               className={`${
-                !isDarkMode ? "text-primary" : "text-muted-foreground"
+                theme === "light" ? "text-primary" : "text-muted-foreground"
               }`}
             />
           </div>
