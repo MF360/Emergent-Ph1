@@ -59,8 +59,8 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
                           <IconComponent className="w-8 h-8 text-primary-foreground" />
                         </div>
                         <div className={`absolute -top-4 -right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg z-20 ${
-                          step.step % 2 === 1 
-                            ? 'bg-primary text-primary-foreground border-2 border-primary' 
+                          !isEven
+                            ? 'bg-primary text-primary-foreground border-2 border-primary'
                             : 'bg-accent text-accent-foreground border-2 border-accent'
                         }`}>
                           {step.step}
