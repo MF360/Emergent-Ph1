@@ -22,29 +22,34 @@ type DifferentiatorItem = {
 // Define the data array matching DifferentiatorItem type
 const differentiatorData: DifferentiatorItem[] = [
   {
-    icon: "Zap",
-    title: "Fast Analysis",
-    description: "Analyze mutual fund portfolios quickly and efficiently.",
+    icon: "Layers",
+    title: "Unified Platform",
+    description:
+      "CRM, AI analytics & transactions — all in one seamless experience.",
   },
   {
-    icon: "Layers",
-    title: "Multi-Portfolio Support",
-    description: "Manage multiple client portfolios in one place.",
+    icon: "Zap",
+    title: "AI-Powered Insights",
+    description:
+      "Turns live data into actionable recommendations — fast, accurate & efficient.",
   },
   {
     icon: "Target",
-    title: "Precise Recommendations",
-    description: "Get accurate investment recommendations based on data.",
-  },
-  {
-    icon: "Shield",
-    title: "Secure & Compliant",
-    description: "Your data is protected with enterprise-grade security.",
+    title: "Smart Client Management",
+    description:
+      "Purpose-built CRM for MFDs — track AUM, SIPs & client engagement effortlessly.",
   },
   {
     icon: "TrendingUp",
-    title: "Growth Tracking",
-    description: "Monitor client portfolio performance over time.",
+    title: "Scalable & Future-Ready",
+    description:
+      "From solo IFAs to large distributors — easy onboarding, modular architecture & automation-ready growth.",
+  },
+  {
+    icon: "Shield",
+    title: "Compliance & Security First",
+    description:
+      "Bank-grade encryption, data masking & secure infrastructure ensure complete data protection.",
   },
 ];
 
