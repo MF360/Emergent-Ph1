@@ -1,10 +1,16 @@
 import React from "react";
-import { UserPlus, Database, Lightbulb, MousePointer } from "lucide-react";
+import {
+  UserPlus,
+  Database,
+  Lightbulb,
+  MousePointer,
+  TrendingUp,
+} from "lucide-react";
 
 // Type for each workflow step
 export type WorkflowStep = {
   step: number;
-  icon: "UserPlus" | "Database" | "Lightbulb" | "MousePointer";
+  icon: "UserPlus" | "Database" | "Lightbulb" | "MousePointer" | "TrendingUp";
   title: string;
   description: string;
 };
@@ -19,6 +25,7 @@ const iconMap = {
   Database: Database,
   Lightbulb: Lightbulb,
   MousePointer: MousePointer,
+  TrendingUp: TrendingUp,
 };
 
 const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
@@ -26,60 +33,75 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <div className="text-center space-y-6 mb-16">
+        <div className="text-center space-y-6 mb-24">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             How It Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get started in minutes with our simple 4-step process
+            Get started in minutes with our seamless, AI-powered workflow.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Desktop Layout */}
+          {/* Desktop Layout - Vertical Timeline */}
           <div className="hidden lg:block relative">
-            {/* Connection Line */}
-            <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-green-400/20"></div>
+            {/* Central Vertical Line */}
+            <div
+              className="absolute top-8 bottom-8 left-1/2 -translate-x-1/2 w-0.5 bg-border"
+              aria-hidden="true"
+            ></div>
 
-            <div className="grid grid-cols-4 gap-8">
+            <div className="space-y-20">
               {data.map((step, index) => {
                 const IconComponent = iconMap[step.icon];
-                const isEven = index % 2 === 0;
+                const isLeft = index % 2 !== 0; // Odd items on the left
 
                 return (
                   <div key={step.step} className="relative">
-                    {/* Step Indicator */}
+                    {/* Content Card Box */}
                     <div
-                      className={`flex flex-col items-center ${
-                        isEven ? "mb-8" : "mt-8"
+                      className={`w-[calc(50%-4rem)] ${
+                        isLeft ? "mr-auto" : "ml-auto"
                       }`}
                     >
-                      <div className="relative">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300 relative z-10">
-                          <IconComponent className="w-8 h-8 text-primary-foreground" />
-                        </div>
-                        <div className={`absolute -top-4 -right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg z-20 ${
-                          !isEven
-                            ? 'bg-primary text-primary-foreground border-2 border-primary'
-                            : 'bg-accent text-accent-foreground border-2 border-accent'
-                        }`}>
-                          {step.step}
-                        </div>
+                      <div
+                        className={`relative bg-card p-6 rounded-xl shadow-md border border-border ${
+                          isLeft ? "text-right" : "text-left"
+                        }`}
+                      >
+                        {/* Triangle Pointer */}
+                        <div
+                          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-card rotate-45 ${
+                            isLeft ? "right-[-8px]" : "left-[-8px]"
+                          }`}
+                        />
+                        {/* UPDATED FONT SIZES */}
+                        <h3 className="text-xl font-semibold text-foreground">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                          {step.description}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Content */}
+                    {/* Horizontal Connecting Line from Center */}
                     <div
-                      className={`text-center space-y-3 ${
-                        isEven ? "" : "mt-16"
+                      className={`absolute top-1/2 -translate-y-1/2 h-0.5 w-16 bg-border ${
+                        isLeft ? "right-1/2" : "left-1/2"
                       }`}
-                    >
-                      <h3 className="text-lg font-bold text-foreground">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {step.description}
-                      </p>
+                    ></div>
+
+                    {/* Icon and Step Number on the Timeline */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                      <div className="relative">
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="w-8 h-8 text-primary-foreground" />
+                        </div>
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary shadow-lg z-20">
+                          {step.step}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -87,7 +109,7 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Mobile Layout */}
+          {/* Mobile Layout (Unchanged) */}
           <div className="lg:hidden space-y-8">
             {data.map((step, index) => {
               const IconComponent = iconMap[step.icon];
@@ -107,10 +129,11 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
                   </div>
 
                   <div className="space-y-2 pt-2">
-                    <h3 className="text-lg font-bold text-foreground">
+                    {/* UPDATED FONT SIZES */}
+                    <h3 className="text-lg font-semibold text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {step.description}
                     </p>
                   </div>

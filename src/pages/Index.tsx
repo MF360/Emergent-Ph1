@@ -19,8 +19,8 @@ type DifferentiatorItem = {
   description: string;
 };
 
-// Define the data array matching DifferentiatorItem type
-const differentiatorData: DifferentiatorItem[] = [
+// Differentiator Data
+const differentiatorData = [
   {
     icon: "Layers",
     title: "Unified Platform",
@@ -51,36 +51,62 @@ const differentiatorData: DifferentiatorItem[] = [
     description:
       "Bank-grade encryption, data masking & secure infrastructure ensure complete data protection.",
   },
-];
+] as const satisfies DifferentiatorItem[];
 
 // Workflow Section Data
-const workflowData: WorkflowStep[] = [
+const workflowData = [
   {
     step: 1,
     icon: "UserPlus",
     title: "Sign Up",
-    description: "Create your account in minutes.",
+    description:
+      "Create your MF360 account and get started within minutes — no complex setup required.",
   },
   {
     step: 2,
     icon: "Database",
-    title: "Add Portfolio",
-    description: "Add client portfolios effortlessly.",
+    title: "Integration",
+    description:
+      "Connect seamlessly with CAMS, KFintech, BSE Star MF, and NSE NMF II for unified data access.",
   },
   {
     step: 3,
     icon: "Lightbulb",
-    title: "Analyze",
-    description: "Get actionable insights quickly.",
+    title: "AI Analysis",
+    description:
+      "Leverage AI to analyze portfolios, detect overlaps, assess risk, and recommend actionable insights.",
   },
   {
     step: 4,
     icon: "MousePointer",
-    title: "Invest",
-    description: "Make informed investment decisions.",
+    title: "CRM Dashboard",
+    description:
+      "Manage clients, leads, and AUM — track engagement, performance, and transactions in one place.",
   },
-];
+  {
+    step: 5,
+    icon: "Database",
+    title: "Transaction",
+    description:
+      "Execute SIPs, lumpsum investments, switches, and redemptions securely and instantly.",
+  },
+  {
+    step: 6,
+    icon: "Lightbulb",
+    title: "Reports",
+    description:
+      "Generate professional, client-ready reports with visual analytics and personalized insights.",
+  },
+  {
+    step: 7,
+    icon: "TrendingUp",
+    title: "Growth & Scale",
+    description:
+      "Expand effortlessly with automation-ready tools, AI recommendations, and modular scaling.",
+  },
+] as const satisfies WorkflowStep[];
 
+// Security Features
 const securityFeatures: Feature[] = [
   {
     icon: "Lock",
