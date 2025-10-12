@@ -4,12 +4,13 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
-import DashboardPreview from "../components/DashboardPreview";
+// import DashboardPreview from "../components/DashboardPreview";
 import DifferentiatorSection from "../components/DifferentiatorSection";
 import WorkflowSection, {
   type WorkflowStep,
 } from "../components/WorkflowSection";
 import SecuritySection, { type Feature } from "../components/SecuritySection";
+import ProblemStatement from "../components/ProblemStatement";
 
 // Define the type locally since it's only used here
 type DifferentiatorItem = {
@@ -104,9 +105,10 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <ProblemStatement />
         <Features />
         <DifferentiatorSection data={differentiatorData} />
-        
+
         {/* Visual Separator */}
         <div className="relative py-16 bg-background">
           <div className="absolute inset-0 flex items-center justify-center">
@@ -128,10 +130,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-        
+
         <WorkflowSection data={workflowData} />
         <Testimonials />
-        <DashboardPreview />
+        {/* <DashboardPreview /> */}
         <SecuritySection data={securityFeatures} />
         <Pricing />
       </main>
