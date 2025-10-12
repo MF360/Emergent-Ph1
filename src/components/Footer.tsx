@@ -1,4 +1,22 @@
+import {
+  Globe,
+  Home,
+  Package,
+  CircleDot,
+  Workflow,
+  DollarSign,
+  Mail,
+} from "lucide-react";
 import Logo from "./Logo";
+
+const navItems = [
+  { id: "home", label: "HOME", icon: Home },
+  { id: "solutions", label: "Solutions", icon: Package },
+  { id: "features", label: "Features", icon: CircleDot },
+  { id: "how-it-works", label: "How it Works", icon: Workflow },
+  { id: "pricing", label: "Pricing", icon: DollarSign },
+  { id: "contact", label: "Contact Us", icon: Mail },
+];
 
 const Footer = () => {
   return (
@@ -121,46 +139,20 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-medium text-lg text-foreground">Product</h4>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="#features"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Integrations
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pricing"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Updates
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Roadmap
-                </a>
-              </li>
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -258,7 +250,14 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
-          <div>© 2025 MF360. All rights reserved.</div>
+          <div className="text-center md:text-left">
+            <div>© 2025 MF360. All rights reserved.</div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Globe className="w-4 h-4 text-muted-foreground" />
+            <span>A Product of Delphi Enterprise</span>
+          </div>
+
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-foreground transition-colors">
               Privacy

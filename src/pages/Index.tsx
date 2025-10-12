@@ -10,6 +10,7 @@ import WorkflowSection, {
 } from "../components/WorkflowSection";
 import SecuritySection, { type Feature } from "../components/SecuritySection";
 import ProblemStatement from "../components/ProblemStatement";
+import ContactUs from "../components/ContactUs";
 
 // Define the type locally since it's only used here
 type DifferentiatorItem = {
@@ -143,38 +144,59 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
       <main>
-        <HeroSection />
-        <ProblemStatement />
-        <Features />
-        <DifferentiatorSection data={differentiatorData} />
+        {/* --- CHANGES ARE HERE --- */}
+        {/* Each section is wrapped in a div with a matching ID for scrollspy */}
 
-        {/* Visual Separator */}
-        <div className="relative py-16 bg-background">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full max-w-4xl mx-auto px-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-border"></div>
-                </div>
-                <div className="relative flex justify-center">
-                  <div className="bg-background px-6">
-                    <div className="flex items-center gap-3">
-                      <div className="h-2 w-2 rounded-full bg-primary"></div>
-                      <div className="h-2 w-2 rounded-full bg-accent"></div>
-                      <div className="h-2 w-2 rounded-full bg-primary"></div>
+        <div id="home">
+          <HeroSection />
+        </div>
+
+        <div id="solutions">
+          <ProblemStatement />
+        </div>
+
+        <div id="features">
+          <Features />
+        </div>
+
+        <div>
+          <DifferentiatorSection data={differentiatorData} />
+          {/* Visual Separator */}
+          <div className="relative py-16 bg-background">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full max-w-4xl mx-auto px-6">
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-border"></div>
+                  </div>
+                  <div className="relative flex justify-center">
+                    <div className="bg-background px-6">
+                      <div className="flex items-center gap-3">
+                        <div className="h-2 w-2 rounded-full bg-primary"></div>
+                        <div className="h-2 w-2 rounded-full bg-accent"></div>
+                        <div className="h-2 w-2 rounded-full bg-primary"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div id="how-it-works">
+            <WorkflowSection data={workflowData} />
+          </div>
         </div>
 
-        <WorkflowSection data={workflowData} />
-        {/* <Testimonials /> */}
-        {/* <DashboardPreview /> */}
+        {/* Security Section does not have a nav link, so it doesn't need an ID */}
         <SecuritySection data={securityFeatures} />
-        <Pricing />
+
+        <div id="pricing">
+          <Pricing />
+        </div>
+
+        <div id="contact">
+          <ContactUs />
+        </div>
       </main>
       <Footer />
     </div>
