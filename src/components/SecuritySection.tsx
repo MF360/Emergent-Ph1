@@ -6,16 +6,18 @@ import { Lock, FileCheck, UserCheck, Eye, Shield } from "lucide-react";
 const iconMap = {
   Lock: Lock,
   FileCheck: FileCheck,
-  UserCheck: UserCheck,
+  UserCheck: UserCheck, // Kept for semantic accuracy for "User Verification"
   Eye: Eye,
   Shield: Shield,
 } as const;
 
-// Feature type
+// Feature type to include colors for individual icon styling
 export interface Feature {
   icon: keyof typeof iconMap;
   title: string;
   description: string;
+  iconBg: string; // Hex code for icon background
+  iconColor: string; // Hex code for icon color
 }
 
 // Badge type
@@ -29,68 +31,160 @@ export interface Badge {
 
 // Props
 interface SecuritySectionProps {
-  data: Feature[];
+  data?: Feature[];
   badges?: Badge[];
 }
 
-// Default badges
-const defaultBadges: Badge[] = [
-  { name: "SEBI", description: "SEBI Registered", fromColor: "blue-100", toColor: "purple-100", textColor: "blue-600" },
-  { name: "AMFI", description: "AMFI Certified", fromColor: "green-100", toColor: "blue-100", textColor: "green-600" },
-  { name: "KYC/AML", description: "KYC/AML Compliant", fromColor: "purple-100", toColor: "pink-100", textColor: "purple-600" },
-  { name: "ISO", description: "ISO 27001", fromColor: "orange-100", toColor: "red-100", textColor: "orange-600" },
+// --- CONTENT UPDATED HERE ---
+// REVISED default data to match your new screenshot and green icon theme
+const defaultFeatures: Feature[] = [
+  {
+    icon: "Lock",
+    title: "Bank-Grade Security",
+    description: "All data is encrypted and securely stored.",
+    iconBg: "#f0fdf4", // light green
+    iconColor: "#16a34a", // green
+  },
+  {
+    icon: "FileCheck",
+    title: "Regulatory Compliance",
+    description: "Compliant with SEBI, AMFI, and KYC/AML regulations.",
+    iconBg: "#f0fdf4", // light green
+    iconColor: "#16a34a", // green
+  },
+  {
+    icon: "UserCheck", // Using UserCheck for "User Verification" for clarity
+    title: "User Verification",
+    description: "Ensure your clients are verified and secure.",
+    iconBg: "#f0fdf4", // light green
+    iconColor: "#16a34a", // green
+  },
+  {
+    icon: "Eye",
+    title: "Audit Logging",
+    description: "Keep track of all activity for transparency.",
+    iconBg: "#f0fdf4", // light green
+    iconColor: "#16a34a", // green
+  },
 ];
 
-const SecuritySection: React.FC<SecuritySectionProps> = ({ data, badges = defaultBadges }) => {
+// Default badges from previous design
+const defaultBadges: Badge[] = [
+  {
+    name: "SEBI",
+    description: "SEBI Registered",
+    fromColor: "#e0e7ff",
+    toColor: "#e9d5ff",
+    textColor: "#4f46e5",
+  },
+  {
+    name: "AMFI",
+    description: "AMFI Certified",
+    fromColor: "#dcfce7",
+    toColor: "#d1fae5",
+    textColor: "#16a34a",
+  },
+  {
+    name: "KYC/AML",
+    description: "KYC/AML Compliant",
+    fromColor: "#f3e8ff",
+    toColor: "#fae8ff",
+    textColor: "#9333ea",
+  },
+  {
+    name: "ISO",
+    description: "ISO 27001",
+    fromColor: "#fff7ed",
+    toColor: "#ffedd5",
+    textColor: "#f97316",
+  },
+];
+
+const SecuritySection: React.FC<SecuritySectionProps> = ({
+  data = defaultFeatures,
+  badges = defaultBadges,
+}) => {
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
-      <div className="container mx-auto px-6">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-blue-50/50 dark:from-slate-900 dark:to-slate-800">
+      <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center space-y-6 mb-16">
-          <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full mx-auto">
-            <Shield className="w-10 h-10 text-primary" aria-hidden="true" />
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="flex items-center justify-center w-20 h-20 bg-green-100/70 dark:bg-green-500/10 rounded-full mx-auto mb-6">
+            <Shield
+              className="w-10 h-10 text-green-500 dark:text-green-400"
+              aria-hidden="true"
+            />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Security & Compliance</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Bank-grade security with regulatory compliance built into every feature
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white">
+            Security & Compliance
+          </h2>
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+            Bank-grade security with regulatory compliance built into every
+            feature
           </p>
         </div>
 
-        {/* Features */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-20">
           {data.map((feature, index) => {
             const IconComponent = iconMap[feature.icon] || Lock;
             return (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border border-border bg-card/80 backdrop-blur-sm">
-                <CardContent className="p-6 text-center space-y-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-6 h-6 text-primary" aria-hidden="true" />
+              <Card
+                key={index}
+                className="bg-white dark:bg-card/50 backdrop-blur-sm rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <CardContent className="p-8 text-center">
+                  <div
+                    className="flex items-center justify-center w-14 h-14 rounded-xl mx-auto mb-5"
+                    style={{ backgroundColor: feature.iconBg }}
+                  >
+                    <IconComponent
+                      className="w-7 h-7"
+                      style={{ color: feature.iconColor }}
+                      aria-hidden="true"
+                    />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             );
           })}
         </div>
 
-        {/* Compliance Badges */}
-        <div className="bg-card rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border border-border">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-foreground mb-2">Regulatory Compliance</h3>
-            <p className="text-muted-foreground">Certified and compliant with Indian financial regulations</p>
+        {/* Compliance Badges Section */}
+        <div className="bg-white dark:bg-slate-900/50 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto border border-slate-200/80 dark:border-slate-800 shadow-2xl shadow-blue-100/50 dark:shadow-black/50">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
+              Regulatory Compliance
+            </h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400">
+              Certified and compliant with Indian financial regulations
+            </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {badges.map((badge, i) => (
-              <div key={i} className="text-center space-y-2">
+              <div key={i} className="text-center space-y-3">
                 <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto bg-gradient-to-br from-primary/10 to-accent/10"
+                  className="w-20 h-20 rounded-xl flex items-center justify-center mx-auto transition-transform hover:scale-105"
+                  style={{
+                    background: `linear-gradient(135deg, ${badge.fromColor}, ${badge.toColor})`,
+                  }}
                 >
-                  <span className="font-bold text-xs text-primary">
+                  <span
+                    className="font-bold text-sm"
+                    style={{ color: badge.textColor }}
+                  >
                     {badge.name}
                   </span>
                 </div>
-                <div className="text-sm font-semibold text-muted-foreground">{badge.description}</div>
+                <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                  {badge.description}
+                </div>
               </div>
             ))}
           </div>

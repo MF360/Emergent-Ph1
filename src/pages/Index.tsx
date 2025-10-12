@@ -106,27 +106,36 @@ const workflowData = [
   },
 ] as const satisfies WorkflowStep[];
 
-// Security Features
+// --- CHANGES ARE HERE ---
+// Security Features - Updated with color properties
 const securityFeatures: Feature[] = [
   {
     icon: "Lock",
     title: "Bank-Grade Security",
     description: "All data is encrypted and securely stored.",
+    iconBg: "#f0fdf4", // <-- ADDED
+    iconColor: "#16a34a", // <-- ADDED
   },
   {
     icon: "FileCheck",
     title: "Regulatory Compliance",
     description: "Compliant with SEBI, AMFI, and KYC/AML regulations.",
+    iconBg: "#f0fdf4", // <-- ADDED
+    iconColor: "#16a34a", // <-- ADDED
   },
   {
     icon: "UserCheck",
     title: "User Verification",
     description: "Ensure your clients are verified and secure.",
+    iconBg: "#f0fdf4", // <-- ADDED
+    iconColor: "#16a34a", // <-- ADDED
   },
   {
     icon: "Eye",
     title: "Audit Logging",
     description: "Keep track of all activity for transparency.",
+    iconBg: "#f0fdf4", // <-- ADDED
+    iconColor: "#16a34a", // <-- ADDED
   },
 ];
 
