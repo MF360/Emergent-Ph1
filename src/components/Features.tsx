@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -8,6 +8,51 @@ import { ChevronDown, Layers, Grid3x3, LayoutDashboard } from "lucide-react";
 
 const Features = () => {
   const [openFeature, setOpenFeature] = useState<number | null>(null);
+  const [openFeature, setOpenFeature] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+ const [visibleItems, setVisibleItems] = useState<boolean[]>([]);
+
+  useEffect(() => {
+   setVisibleItems(new Array(features.length).fill(false));
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const observer = new IntersectionObserver(
+      /* …rest of existing observer setup… */
+
+  useEffect(() => {
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          // Animate items with staggered delays after heading animation
+          const headingDelay = setTimeout(() => {
+            features.forEach((_, index) => {
+              const itemDelay = setTimeout(() => {
+                setVisibleItems(prev => {
+                  const newVisible = [...prev];
+                  newVisible[index] = true;
+                  return newVisible;
+                });
+              }, index * 200); // 200ms delay between each item
+              timeouts.push(itemDelay);
+            });
+          }, 300); // Wait 300ms after heading starts animating
+          timeouts.push(headingDelay);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the heading is visible
+    );
+
+    const headingElement = document.querySelector("#features .text-center");
+    if (headingElement) observer.observe(headingElement);
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+      observer.disconnect();
+      if (headingElement) observer.unobserve(headingElement);
+    };
+  }, []);
 
   const features = [
     {
@@ -46,7 +91,9 @@ const Features = () => {
       className="w-full py-12 md:py-16 px-6 md:px-12 bg-background"
     >
       <div className="max-w-7xl mx-auto space-y-12">
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
+        <div className={`text-center space-y-3 max-w-3xl mx-auto transition-all duration-700 transform ${
+          isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+        }`}>
           <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
             Complete Distribution Platform
           </h2>
@@ -66,7 +113,14 @@ const Features = () => {
                 openFeature === index
                   ? "border-primary/40"
                   : "border-border"
-              } bg-card transition-all duration-300`}
+              } bg-card transition-all duration-300 transform ${
+                visibleItems[index]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              } transition-all duration-500 ease-out`}
+              style={{
+                transitionDelay: `${index * 200}ms`
+              }}
             >
               <CollapsibleTrigger className="w-full text-left p-6 flex flex-col">
                 <div className="flex justify-between items-start">

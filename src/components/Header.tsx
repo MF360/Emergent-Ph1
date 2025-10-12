@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import Logo from "./Logo";
 import {
   Menu,
@@ -7,18 +7,15 @@ import {
   CircleDot,
   LayoutDashboard,
   DollarSign,
-  Sun,
-  Moon,
 } from "lucide-react";
 import { cn } from "../lib/utils";
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
-import { Switch } from "./ui/switch";
 import { Button } from "./ui/button";
 
 const Header = () => {
   const [activePage, setActivePage] = useState("features");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   const handleNavClick = (page: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -34,9 +31,9 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  // const toggleTheme = () => {
+  //   setTheme(theme === "dark" ? "light" : "dark");
+  // };
 
   return (
     <div className="sticky top-0 z-50 pt-8 px-4">
@@ -142,7 +139,7 @@ const Header = () => {
               </a>
 
               {/* Add theme toggle for mobile */}
-              <div className="flex items-center justify-between px-3 py-2">
+              {/* <div className="flex items-center justify-between px-3 py-2">
                 <span className="text-sm text-muted-foreground">Theme</span>
                 <div className="flex items-center gap-2">
                   <Moon
@@ -163,14 +160,14 @@ const Header = () => {
                     }`}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
 
         <div className="hidden md:flex items-center gap-4">
           {/* Theme toggle for desktop */}
-          <div className="flex items-center gap-2 rounded-full px-3 py-2">
+          {/* <div className="flex items-center gap-2 rounded-full px-3 py-2">
             <Moon
               size={18}
               className={`${
@@ -188,7 +185,7 @@ const Header = () => {
                 theme === "light" ? "text-primary" : "text-muted-foreground"
               }`}
             />
-          </div>
+          </div> */}
           <div className="rounded-2xl">
             <Button
               variant="ghost"

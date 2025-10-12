@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import TaskBoard from "./TaskBoard";
+// import TaskBoard from "./TaskBoard";
 import { Loader } from "lucide-react";
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +28,7 @@ const HeroSection = () => {
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-muted text-primary">
             <span className="flex h-2 w-2 rounded-full bg-primary"></span>
-            AI-Powered Platform for MFDs
+            AI + CRM + Transactions — The Future of Mutual Fund Distribution
             <Loader className="h-3 w-3 animate-spin text-primary" />
           </span>
         </div>
@@ -62,13 +62,13 @@ const HeroSection = () => {
       </div>
 
       {/* Task Manager UI integrated in hero section with glassmorphic effect */}
-      <div
+      {/* <div
         className={`w-full max-w-7xl mt-12 z-10 transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
         }`}
       >
         <div className="cosmic-glow relative rounded-xl overflow-hidden border border-border backdrop-blur-sm bg-card shadow-lg">
-          {/* Dashboard Header */}
+          Dashboard Header
           <div className="bg-card backdrop-blur-md w-full">
             <div className="flex items-center justify-between p-4 border-b border-border">
               <div className="flex items-center gap-4">
@@ -96,9 +96,9 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Dashboard Content */}
+            Dashboard Content
             <div className="flex h-[600px] overflow-hidden">
-              {/* Sidebar */}
+              Sidebar
               <div className="w-64 border-r border-border p-4 space-y-4 hidden md:block bg-card">
                 <div className="space-y-2">
                   <div className="text-xs text-muted-foreground uppercase">
@@ -145,9 +145,9 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Main Content */}
+              Main Content
               <div className="flex-1 p-4 bg-background overflow-hidden">
-                {/* Board Header */}
+                Board Header
                 <div className="flex items-center justify-between mb-6 min-w-0">
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <h3 className="font-medium text-foreground">
@@ -211,7 +211,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* Kanban Board */}
+                Kanban Board
                 <div className="overflow-hidden">
                   <TaskBoard />
                 </div>
@@ -219,7 +219,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
