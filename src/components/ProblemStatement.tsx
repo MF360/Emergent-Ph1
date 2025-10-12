@@ -35,19 +35,21 @@ const ProblemStatement = () => {
   ];
 
   useEffect(() => {
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
           // Animate items with staggered delays
           problems.forEach((_, index) => {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
               setVisibleItems(prev => {
                 const newVisible = [...prev];
                 newVisible[index] = true;
                 return newVisible;
               });
             }, index * 300); // 300ms delay between each item
+            timeouts.push(timeoutId);
           });
           observer.disconnect();
         }
@@ -59,6 +61,8 @@ const ProblemStatement = () => {
     if (section) observer.observe(section);
 
     return () => {
+      timeouts.forEach(clearTimeout);
+      observer.disconnect();
       if (section) observer.unobserve(section);
     };
   }, []);
