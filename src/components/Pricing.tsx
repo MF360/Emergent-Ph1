@@ -1,10 +1,10 @@
-import { Button } from "../components/ui/button";
+import { Check, Star } from "lucide-react";
 
 const Pricing = () => {
   const plans = [
     {
       name: "Starter",
-      price: "Free",
+      price: "Custom",
       description:
         "Perfect for individual MFDs starting their distribution business",
       features: [
@@ -14,14 +14,12 @@ const Pricing = () => {
         "Transaction management",
         "Email support",
       ],
-      buttonText: "Start Free Trial",
-      buttonVariant: "outline",
+      buttonText: "Contact Sales Team",
       popular: false,
     },
     {
       name: "Professional",
-      price: "₹2,999",
-      period: "per month",
+      price: "Custom",
       description: "Ideal for growing MFDs managing multiple client portfolios",
       features: [
         "Up to 500 clients",
@@ -32,8 +30,7 @@ const Pricing = () => {
         "Priority support",
         "Custom reports",
       ],
-      buttonText: "Start 14-day trial",
-      buttonVariant: "default",
+      buttonText: "Contact Sales Team",
       popular: true,
     },
     {
@@ -50,106 +47,103 @@ const Pricing = () => {
         "Multi-user access",
         "24/7 premium support",
       ],
-      buttonText: "Contact Sales",
-      buttonVariant: "outline",
+      buttonText: "Contact Sales Team",
       popular: false,
     },
   ];
 
   return (
-    <section id="pricing" className="w-full py-20 px-6 md:px-12 bg-background">
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-            Pricing that scales with your business
+    <section id="pricing" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="text-center space-y-6 mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+            Choose Your Plan
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Choose the plan that fits your distribution business size and
-            ambitions
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Flexible pricing to scale with your business needs
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`p-6 rounded-xl border flex flex-col h-full ${
+              className={`relative group transition-all duration-500 border-0 flex flex-col rounded-2xl ${
                 plan.popular
-                  ? "border-primary/50 cosmic-glow bg-card"
-                  : "border-border cosmic-gradient bg-card"
-              } transition-all duration-300 relative`}
+                  ? "bg-gradient-to-b from-blue-50 to-white shadow-xl scale-105 hover:scale-110"
+                  : "bg-card shadow-lg hover:shadow-xl hover:-translate-y-2"
+              }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm rounded-full font-medium">
-                  Most Popular
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center space-x-1 shadow-lg">
+                    <Star className="w-4 h-4" />
+                    <span>Most Popular</span>
+                  </div>
                 </div>
               )}
 
-              <div className="mb-auto">
-                <h3 className="text-2xl font-medium tracking-tighter mb-1 text-foreground">
-                  {plan.name}
-                </h3>
+              <div className="p-8 space-y-6 flex flex-col flex-grow">
+                <div className="text-center space-y-4">
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {plan.name}
+                  </h3>
+                  <p className="text-muted-foreground">{plan.description}</p>
 
-                <div className="mb-4">
-                  <div className="text-3xl font-bold tracking-tighter text-foreground">
-                    {plan.price}
-                  </div>
-                  {plan.period && (
+                  <div className="space-y-2">
+                    <div className="text-4xl font-bold text-foreground">
+                      {plan.price}
+                    </div>
                     <div className="text-sm text-muted-foreground">
-                      {plan.period}
+                      Custom pricing
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <p className="text-muted-foreground mb-6">{plan.description}</p>
+                <div className="flex-grow space-y-4 pt-6 border-t border-border">
+                  <div className="text-sm font-semibold text-foreground">
+                    What's included:
+                  </div>
 
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="h-5 w-5 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M5 12L10 17L19 8"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                  <div className="space-y-3">
+                    {plan.features.map((feature, featureIndex) => (
+                      <div
+                        key={featureIndex}
+                        className="flex items-start space-x-3 text-left"
+                      >
+                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-muted-foreground">
+                          {feature}
+                        </span>
                       </div>
-                      <span className="text-sm text-foreground">{feature}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="mt-6">
-                <Button
-                  className={
-                    plan.buttonVariant === "default"
-                      ? "w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "w-full border-border text-foreground hover:bg-muted"
-                  }
-                  variant={plan.buttonVariant as "default" | "outline"}
+                <button
+                  className={`w-full py-3 text-lg rounded-xl transition-all duration-300 mt-6 ${
+                    plan.popular
+                      ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg"
+                      : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+                  }`}
                 >
                   {plan.buttonText}
-                </Button>
+                </button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center text-muted-foreground">
-          Have questions?{" "}
-          <a href="#" className="text-primary hover:underline">
-            Contact our sales team
-          </a>
+        {/* Additional Info */}
+        <div className="text-center mt-12 space-y-4">
+          <p className="text-muted-foreground">
+            All plans include 24/7 support and regular updates
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+            <span>✓ Free setup & migration</span>
+            <span>✓ No setup fees</span>
+            <span>✓ Cancel anytime</span>
+          </div>
         </div>
       </div>
     </section>
