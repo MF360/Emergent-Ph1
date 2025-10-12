@@ -30,7 +30,7 @@ const iconMap = {
 
 const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
   return (
-    <section className="py-20 bg-background">
+    <section id="how-it-works" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center space-y-6 mb-24">

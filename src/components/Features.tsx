@@ -76,7 +76,7 @@ const Features = () => {
 
   return (
     <section
-      id="features"
+      id="solutions"
       className="w-full py-12 md:py-16 px-6 md:px-12 bg-background"
     >
       <div className="max-w-7xl mx-auto space-y-12">
