@@ -48,7 +48,7 @@ const Features = () => {
       description:
         "Store and manage investor profiles, track conversations, set reminders, segment clients.",
       expandedDescription:
-        "Never lose touch — nurture relationships at scale. Keep all client data in one place, automate follow-ups, and manage every investor with full transparency and organization.",
+        "- Centralized client profiles with AUM and SIP tracking\n- Automated follow-ups, alerts, and renewal reminders\n- Lead management and segmentation based on goals or risk profiles\n- Integrated communication tools including email and WhatsApp",
       icon: <Layers size={24} className="text-primary" />,
     },
     {
@@ -56,7 +56,7 @@ const Features = () => {
       description:
         "Instantly evaluate portfolios, risk scores, and get investment recommendations.",
       expandedDescription:
-        "Make data-backed decisions with AI-powered analytics. Gain insights into portfolio health, performance trends, and client behavior to deliver timely, personalized advice.",
+        "- Real-time analysis leveraging CAMS and KFintech data\n- Detects portfolio overlap, underperformance, and risk mismatches\n- Provides data-driven recommendations for rebalancing, SIP adjustments, and fund switches\n- Conversational AI for instant portfolio insights and queries",
       icon: <Grid3x3 size={24} className="text-primary" />,
     },
     {
@@ -64,10 +64,11 @@ const Features = () => {
       description:
         "Place buy, sell, and switch orders directly with built-in compliance & security.",
       expandedDescription:
-        "Save time, reduce errors, and ensure SEBI/AMFI compliance. Execute transactions effortlessly and track full audit trails for every order — all within MF360.",
+        "- Direct integration with BSE Star MF and NSE NMF II platforms\n- Supports SIPs, lump-sum investments, redemptions, and fund switches\n- Real-time tracking of order status and fund updates\n- Comprehensive compliance logs and client reporting tools",
       icon: <LayoutDashboard size={24} className="text-primary" />,
     },
   ];
+
 
   const toggleFeature = (index: number) => {
     setOpenFeature(openFeature === index ? null : index);
@@ -79,15 +80,13 @@ const Features = () => {
       className="w-full py-12 md:py-16 px-6 md:px-12 bg-background"
     >
       <div className="max-w-7xl mx-auto space-y-12">
-        <div className={`text-center space-y-3 max-w-3xl mx-auto transition-all duration-700 transform ${
-          isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
-        }`}>
+        <div className={`text-center space-y-3 max-w-3xl mx-auto transition-all duration-700 transform ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+          }`}>
           <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-            Complete Distribution Platform
+            Everything You Need to Scale Your Distribution Business
           </h2>
           <p className="text-muted-foreground text-lg">
-            Integrated CRM, analytics, and transaction management designed for
-            mutual fund distributors.
+            Stop juggling multiple tools. One intelligent platform that handles CRM, analytics, and transactions — designed specifically for mutual fund distributors.
           </p>
         </div>
 
@@ -97,15 +96,13 @@ const Features = () => {
               key={index}
               open={openFeature === index}
               onOpenChange={() => toggleFeature(index)}
-              className={`rounded-xl border ${
-                openFeature === index
+              className={`rounded-xl border ${openFeature === index
                   ? "border-primary/40"
                   : "border-border"
-              } bg-card transition-all duration-300 transform ${
-                visibleItems[index]
+                } bg-card transition-all duration-300 transform ${visibleItems[index]
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
-              } transition-all duration-500 ease-out`}
+                } transition-all duration-500 ease-out`}
               style={{
                 transitionDelay: `${index * 200}ms`
               }}
@@ -116,9 +113,8 @@ const Features = () => {
                     {feature.icon}
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
-                      openFeature === index ? "rotate-180" : ""
-                    }`}
+                    className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${openFeature === index ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
                 <h3 className="text-xl font-medium tracking-tighter mb-3 text-foreground">
@@ -128,9 +124,9 @@ const Features = () => {
               </CollapsibleTrigger>
               <CollapsibleContent className="px-6 pb-6 pt-2">
                 <div className="pt-3 border-t border-border">
-                  <p className="text-muted-foreground">
+                  <div className="text-muted-foreground whitespace-pre-line">
                     {feature.expandedDescription}
-                  </p>
+                  </div>
                 </div>
               </CollapsibleContent>
             </Collapsible>
