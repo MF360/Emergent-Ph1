@@ -8,36 +8,26 @@ import { ChevronDown, Layers, Grid3x3, LayoutDashboard } from "lucide-react";
 
 const Features = () => {
   const [openFeature, setOpenFeature] = useState<number | null>(null);
-  const [openFeature, setOpenFeature] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
- const [visibleItems, setVisibleItems] = useState<boolean[]>([]);
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(3).fill(false));
 
   useEffect(() => {
-   setVisibleItems(new Array(features.length).fill(false));
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-    const observer = new IntersectionObserver(
-      /* …rest of existing observer setup… */
-
-  useEffect(() => {
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
           // Animate items with staggered delays after heading animation
-          const headingDelay = setTimeout(() => {
+          setTimeout(() => {
             features.forEach((_, index) => {
-              const itemDelay = setTimeout(() => {
+              setTimeout(() => {
                 setVisibleItems(prev => {
                   const newVisible = [...prev];
                   newVisible[index] = true;
                   return newVisible;
                 });
               }, index * 200); // 200ms delay between each item
-              timeouts.push(itemDelay);
             });
           }, 300); // Wait 300ms after heading starts animating
-          timeouts.push(headingDelay);
           observer.disconnect();
         }
       },
@@ -48,8 +38,6 @@ const Features = () => {
     if (headingElement) observer.observe(headingElement);
 
     return () => {
-      timeouts.forEach(clearTimeout);
-      observer.disconnect();
       if (headingElement) observer.unobserve(headingElement);
     };
   }, []);
