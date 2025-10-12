@@ -172,7 +172,7 @@ const Index = () => {
         </div>
 
         <WorkflowSection data={workflowData} />
-        <Testimonials />
+        {/* <Testimonials /> */}
         {/* <DashboardPreview /> */}
         <SecuritySection data={securityFeatures} />
         <Pricing />
