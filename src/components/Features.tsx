@@ -12,22 +12,25 @@ const Features = () => {
   const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(3).fill(false));
 
   useEffect(() => {
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
           // Animate items with staggered delays after heading animation
-          setTimeout(() => {
+          const headingDelay = setTimeout(() => {
             features.forEach((_, index) => {
-              setTimeout(() => {
+              const itemDelay = setTimeout(() => {
                 setVisibleItems(prev => {
                   const newVisible = [...prev];
                   newVisible[index] = true;
                   return newVisible;
                 });
               }, index * 200); // 200ms delay between each item
+              timeouts.push(itemDelay);
             });
           }, 300); // Wait 300ms after heading starts animating
+          timeouts.push(headingDelay);
           observer.disconnect();
         }
       },
@@ -38,6 +41,8 @@ const Features = () => {
     if (headingElement) observer.observe(headingElement);
 
     return () => {
+      timeouts.forEach(clearTimeout);
+      observer.disconnect();
       if (headingElement) observer.unobserve(headingElement);
     };
   }, []);
