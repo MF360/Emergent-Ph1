@@ -8,8 +8,15 @@ import { ChevronDown, Layers, Grid3x3, LayoutDashboard } from "lucide-react";
 
 const Features = () => {
   const [openFeature, setOpenFeature] = useState<number | null>(null);
+  const [openFeature, setOpenFeature] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(3).fill(false));
+ const [visibleItems, setVisibleItems] = useState<boolean[]>([]);
+
+  useEffect(() => {
+   setVisibleItems(new Array(features.length).fill(false));
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const observer = new IntersectionObserver(
+      /* …rest of existing observer setup… */
 
   useEffect(() => {
     const timeouts: ReturnType<typeof setTimeout>[] = [];
