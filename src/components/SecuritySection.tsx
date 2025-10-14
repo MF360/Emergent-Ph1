@@ -41,30 +41,34 @@ const defaultFeatures: Feature[] = [
   {
     icon: "Lock",
     title: "Bank-Grade Security",
-    description: "All data is encrypted and securely stored.",
-    iconBg: "#f0fdf4", // light green
-    iconColor: "#16a34a", // green
+    description:
+      "We safeguard all data with AES-256 encryption, secure HTTPS/TLS communication, and multi-layer authentication — ensuring every client portfolio and transaction remains completely protected.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
+  },
+  {
+    icon: "Shield",
+    title: "Data Privacy & Protection",
+    description:
+      "Personal information such as PAN, account numbers, and identifiers are masked. Strict access controls ensure only authorized users can view or modify sensitive data, complying with Indian data protection laws.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
   {
     icon: "FileCheck",
     title: "Regulatory Compliance",
-    description: "Compliant with SEBI, AMFI, and KYC/AML regulations.",
-    iconBg: "#f0fdf4", // light green
-    iconColor: "#16a34a", // green
-  },
-  {
-    icon: "UserCheck", // Using UserCheck for "User Verification" for clarity
-    title: "User Verification",
-    description: "Ensure your clients are verified and secure.",
-    iconBg: "#f0fdf4", // light green
-    iconColor: "#16a34a", // green
+    description:
+      "Fully integrated with CAMS, KFintech, BSE Star MF, and NSE NMF II — every transaction is audit-ready and traceable. MF360 adheres to SEBI and AMFI standards with automated compliance reporting.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
   {
     icon: "Eye",
-    title: "Audit Logging",
-    description: "Keep track of all activity for transparency.",
-    iconBg: "#f0fdf4", // light green
-    iconColor: "#16a34a", // green
+    title: "Continuous Monitoring",
+    description:
+      "We ensure 24/7 protection with real-time alerts for unusual activity, periodic security audits, system health checks, and redundant backups to maintain uptime and prevent data loss.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
 ];
 

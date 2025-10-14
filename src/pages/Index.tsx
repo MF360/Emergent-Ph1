@@ -112,30 +112,34 @@ const securityFeatures: Feature[] = [
   {
     icon: "Lock",
     title: "Bank-Grade Security",
-    description: "All data is encrypted and securely stored.",
-    iconBg: "#f0fdf4", // <-- ADDED
-    iconColor: "#16a34a", // <-- ADDED
+    description:
+      "We protect your data with AES-256 encryption, HTTPS/TLS secure channels, and multi-layer authentication — ensuring all portfolios and transactions remain protected from unauthorized access.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
+  },
+  {
+    icon: "Shield",
+    title: "Data Privacy & Protection",
+    description:
+      "Sensitive information such as PAN and account numbers is masked. Access is restricted to authorized users, and all processes comply with Indian data protection regulations and best practices.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
   {
     icon: "FileCheck",
     title: "Regulatory Compliance",
-    description: "Compliant with SEBI, AMFI, and KYC/AML regulations.",
-    iconBg: "#f0fdf4", // <-- ADDED
-    iconColor: "#16a34a", // <-- ADDED
-  },
-  {
-    icon: "UserCheck",
-    title: "User Verification",
-    description: "Ensure your clients are verified and secure.",
-    iconBg: "#f0fdf4", // <-- ADDED
-    iconColor: "#16a34a", // <-- ADDED
+    description:
+      "Integrated with CAMS, KFintech, BSE Star MF, and NSE NMF II — ensuring all activities are audit-ready, traceable, and compliant with SEBI and AMFI standards for mutual fund distributors.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
   {
     icon: "Eye",
-    title: "Audit Logging",
-    description: "Keep track of all activity for transparency.",
-    iconBg: "#f0fdf4", // <-- ADDED
-    iconColor: "#16a34a", // <-- ADDED
+    title: "Continuous Monitoring",
+    description:
+      "Real-time alerts for unusual activity, regular security audits, system health checks, and redundant backups help maintain uptime and prevent any potential data loss.",
+    iconBg: "#f0fdf4",
+    iconColor: "#16a34a",
   },
 ];
 
