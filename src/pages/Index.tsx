@@ -186,7 +186,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div id="how-it-works scroll-mt-16">
+          <div id="how-it-works" className="scroll-mt-16">
             <WorkflowSection data={workflowData} />
           </div>
         </div>
