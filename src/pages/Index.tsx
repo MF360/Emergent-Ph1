@@ -153,17 +153,20 @@ const Index = () => {
         </section>
 
         {/* Problem Statement */}
-        <section id="solutions" className="scroll-mt-20 lg:scroll-mt-16">
+        <section className="scroll-mt-20 lg:scroll-mt-16">
           <ProblemStatement />
         </section>
 
         {/* Features */}
-        <section id="features" className="scroll-mt-20 lg:scroll-mt-16">
+        <section id="solutions" className="scroll-mt-24 lg:scroll-mt-20">
           <Features />
         </section>
 
         {/* Differentiator */}
-        <section className="relative">
+        <section
+          id="features"
+          className="relative scroll-mt-20 lg:scroll-mt-16"
+        >
           <DifferentiatorSection data={differentiatorData} />
 
           {/* Visual Separator */}
