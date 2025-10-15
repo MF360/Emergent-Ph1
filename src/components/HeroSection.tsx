@@ -37,8 +37,8 @@ const HeroSection = () => {
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground">
-          AI-driven Portfolio Intelligence for{" "}
-          <span className="text-foreground">Mutual Fund Distributors</span>
+          AI-driven Portfolio Intelligence for <br />
+          Mutual Fund Distributors
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
