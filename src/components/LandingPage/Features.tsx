@@ -3,7 +3,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "./ui/collapsible";
+} from "../ui/collapsible";
 import { ChevronDown, Users, Brain, ArrowRightLeft } from "lucide-react";
 
 const Features = () => {

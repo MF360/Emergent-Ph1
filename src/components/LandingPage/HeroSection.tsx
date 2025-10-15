@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 // import TaskBoard from "./TaskBoard";
-import { Loader } from "lucide-react";
+import { Loader, Shield } from "lucide-react";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,16 +29,18 @@ const HeroSection = () => {
         }`}
       >
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-muted text-primary">
-            <span className="flex h-2 w-2 rounded-full bg-primary"></span>
-            AI + CRM + Transactions — The Future of Mutual Fund Distribution
-            <Loader className="h-3 w-3 animate-spin text-primary" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full bg-primary/10 border border-primary/20 bg-blue-100 text-blue-700">
+            <Shield className="h-4 w-4" />
+            <span>
+              AI + CRM + Transactions — The Future of Mutual Fund Distribution
+            </span>
+            <Loader className="h-3 w-3 animate-spin" />
           </span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground">
           AI-driven Portfolio Intelligence for <br />
-          Mutual Fund Distributors
+          <span className="text-blue-600">Mutual Fund</span> Distributors
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
@@ -48,7 +50,7 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
+          <Button className="bg-blue-500 hover:bg-blue-700 text-white hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
             Start For Free
           </Button>
           <Button

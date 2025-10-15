@@ -1,16 +1,18 @@
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import Features from "../components/Features";
-import Pricing from "../components/Pricing";
-import Footer from "../components/Footer";
-// import DashboardPreview from "../components/DashboardPreview";
-import DifferentiatorSection from "../components/DifferentiatorSection";
+import Header from "../components/LandingPage/Header";
+import HeroSection from "../components/LandingPage/HeroSection";
+import Features from "../components/LandingPage/Features";
+import Pricing from "../components/LandingPage/Pricing";
+import Footer from "../components/LandingPage/Footer";
+// import DashboardPreview from "../components/LandingPage/DashboardPreview";
+import DifferentiatorSection from "../components/LandingPage/DifferentiatorSection";
 import WorkflowSection, {
   type WorkflowStep,
-} from "../components/WorkflowSection";
-import SecuritySection, { type Feature } from "../components/SecuritySection";
-import ProblemStatement from "../components/ProblemStatement";
-import ContactUs from "../components/ContactUs";
+} from "../components/LandingPage/WorkflowSection";
+import SecuritySection, {
+  type Feature,
+} from "../components/LandingPage/SecuritySection";
+import ProblemStatement from "../components/LandingPage/ProblemStatement";
+import ContactUs from "../components/LandingPage/ContactUs";
 
 // Define local type for Differentiator
 type DifferentiatorItem = {

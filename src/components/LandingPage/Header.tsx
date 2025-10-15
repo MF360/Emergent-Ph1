@@ -10,9 +10,9 @@ import {
   DollarSign,
   Mail,
 } from "lucide-react";
-import { cn } from "../lib/utils";
-import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
-import { Button } from "./ui/button";
+import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { cn } from "../../lib/utils";
+import { Button } from "../ui/button";
 
 const navItems = [
   { id: "home", label: "HOME", icon: Home },
