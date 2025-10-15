@@ -75,7 +75,6 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
                             isLeft ? "right-[-8px]" : "left-[-8px]"
                           }`}
                         />
-                        {/* UPDATED FONT SIZES */}
                         <h3 className="text-xl font-semibold text-foreground">
                           {step.title}
                         </h3>
@@ -95,10 +94,10 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
                     {/* Icon and Step Number on the Timeline */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                       <div className="relative">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="w-8 h-8 text-primary-foreground" />
+                        <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="w-8 h-8 text-white" />
                         </div>
-                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary shadow-lg z-20">
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-card border-2 border-indigo-500 rounded-full flex items-center justify-center text-sm font-bold text-indigo-600 shadow-lg z-20">
                           {step.step}
                         </div>
                       </div>
@@ -109,7 +108,7 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Mobile Layout (Unchanged) */}
+          {/* Mobile Layout */}
           <div className="lg:hidden space-y-8">
             {data.map((step, index) => {
               const IconComponent = iconMap[step.icon];
@@ -117,19 +116,18 @@ const WorkflowSection: React.FC<WorkflowSectionProps> = ({ data }) => {
               return (
                 <div key={step.step} className="flex items-start space-x-4">
                   <div className="relative flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
-                      <IconComponent className="w-8 h-8 text-primary-foreground" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary shadow-lg z-20">
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-card border-2 border-indigo-500 rounded-full flex items-center justify-center text-sm font-bold text-indigo-600 shadow-lg z-20">
                       {step.step}
                     </div>
                     {index < data.length - 1 && (
-                      <div className="absolute top-20 left-1/2 w-0.5 h-12 bg-gradient-to-b from-primary/20 to-accent/20 transform -translate-x-1/2"></div>
+                      <div className="absolute top-20 left-1/2 w-0.5 h-12 bg-gradient-to-b from-indigo-500/20 to-violet-600/20 transform -translate-x-1/2"></div>
                     )}
                   </div>
 
                   <div className="space-y-2 pt-2">
-                    {/* UPDATED FONT SIZES */}
                     <h3 className="text-lg font-semibold text-foreground">
                       {step.title}
                     </h3>
