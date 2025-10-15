@@ -9,7 +9,9 @@ import {
 
 const ProblemStatement = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(5).fill(false));
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(
+    new Array(5).fill(false)
+  );
 
   const problems = [
     {
@@ -43,7 +45,7 @@ const ProblemStatement = () => {
           // Animate items with staggered delays
           problems.forEach((_, index) => {
             const timeoutId = setTimeout(() => {
-              setVisibleItems(prev => {
+              setVisibleItems((prev) => {
                 const newVisible = [...prev];
                 newVisible[index] = true;
                 return newVisible;
@@ -68,12 +70,20 @@ const ProblemStatement = () => {
   }, []);
 
   return (
-    <section id="problem-statement" className="w-full py-12 md:py-16 px-6 md:px-12 bg-background">
+    <section
+      id="problem-statement"
+      className="w-full py-12 md:py-16 px-6 md:px-12 bg-background"
+    >
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className={`text-center space-y-3 max-w-3xl mx-auto transition-all duration-700 transform ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
-          }`}>
+        <div
+          className={`text-center space-y-3 max-w-3xl mx-auto transition-all duration-700 transform ${
+            isVisible
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 translate-y-10 scale-95"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-            Everything for smarter distribution
+            Everything For Smarter Distribution
           </h2>
         </div>
 
@@ -87,12 +97,13 @@ const ProblemStatement = () => {
               return (
                 <div
                   key={index}
-                  className={`flex justify-center transition-all duration-500 transform ${visibleItems[index]
+                  className={`flex justify-center transition-all duration-500 transform ${
+                    visibleItems[index]
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
-                    }`}
+                  }`}
                   style={{
-                    transitionDelay: `${index * 300}ms`
+                    transitionDelay: `${index * 300}ms`,
                   }}
                 >
                   <div className="flex items-start gap-4 p-6 rounded-xl border border-primary/20 bg-primary/5 max-w-2xl">
@@ -110,15 +121,17 @@ const ProblemStatement = () => {
             return (
               <div
                 key={index}
-                className={`flex transition-all duration-500 transform ${isEven ? "justify-start" : "justify-end"
-                  } ${visibleItems[index]
+                className={`flex transition-all duration-500 transform ${
+                  isEven ? "justify-start" : "justify-end"
+                } ${
+                  visibleItems[index]
                     ? "opacity-100 translate-x-0"
                     : isEven
-                      ? "opacity-0 -translate-x-8"
-                      : "opacity-0 translate-x-8"
-                  }`}
+                    ? "opacity-0 -translate-x-8"
+                    : "opacity-0 translate-x-8"
+                }`}
                 style={{
-                  transitionDelay: `${index * 300}ms`
+                  transitionDelay: `${index * 300}ms`,
                 }}
               >
                 <div className="flex items-start gap-4 p-6 rounded-xl border border-border bg-card max-w-lg">

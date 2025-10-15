@@ -37,7 +37,7 @@ const HeroSection = () => {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
-          Intelligent platform for{" "}
+          Intelligent Platform for{" "}
           <span className="text-foreground">Mutual Fund Distributors</span>
         </h1>
 
@@ -49,13 +49,13 @@ const HeroSection = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
           <Button className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
-            Start for free
+            Start For Free
           </Button>
           <Button
             variant="outline"
             className="border-border text-foreground hover:bg-accent hover:text-accent-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]"
           >
-            Book a demo
+            Book a Demo
           </Button>
         </div>
 
