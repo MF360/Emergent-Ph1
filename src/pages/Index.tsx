@@ -12,7 +12,7 @@ import SecuritySection, { type Feature } from "../components/SecuritySection";
 import ProblemStatement from "../components/ProblemStatement";
 import ContactUs from "../components/ContactUs";
 
-// Define the type locally since it's only used here
+// Define local type for Differentiator
 type DifferentiatorItem = {
   icon: "Zap" | "Layers" | "Target" | "Shield" | "TrendingUp";
   title: string;
@@ -53,7 +53,7 @@ const differentiatorData = [
   },
 ] as const satisfies DifferentiatorItem[];
 
-// Workflow Section Data
+// Workflow Data
 const workflowData = [
   {
     step: 1,
@@ -106,8 +106,7 @@ const workflowData = [
   },
 ] as const satisfies WorkflowStep[];
 
-// --- CHANGES ARE HERE ---
-// Security Features - Updated with color properties
+// Security Features
 const securityFeatures: Feature[] = [
   {
     icon: "Lock",
@@ -137,7 +136,7 @@ const securityFeatures: Feature[] = [
     icon: "Eye",
     title: "Continuous Monitoring",
     description:
-      "Real-time alerts for unusual activity, regular security audits, system health checks, and redundant backups help maintain uptime and prevent any potential data loss.",
+      "Real-time alerts, regular audits, system health checks, and redundant backups ensure uptime and prevent data loss.",
     iconBg: "#f0fdf4",
     iconColor: "#16a34a",
   },
@@ -148,23 +147,25 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
       <main>
-        {/* --- CHANGES ARE HERE --- */}
-        {/* Each section is wrapped in a div with a matching ID for scrollspy */}
-
-        <div id="home">
+        {/* Hero Section */}
+        <section id="home" className="scroll-mt-20 lg:scroll-mt-16">
           <HeroSection />
-        </div>
+        </section>
 
-        <div id="solutions" className="scroll-mt-16">
+        {/* Problem Statement */}
+        <section id="solutions" className="scroll-mt-20 lg:scroll-mt-16">
           <ProblemStatement />
-        </div>
+        </section>
 
-        <div id="features" className="scroll-mt-16">
+        {/* Features */}
+        <section id="features" className="scroll-mt-20 lg:scroll-mt-16">
           <Features />
-        </div>
+        </section>
 
-        <div>
+        {/* Differentiator */}
+        <section className="relative">
           <DifferentiatorSection data={differentiatorData} />
+
           {/* Visual Separator */}
           <div className="relative py-16 bg-background">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -186,21 +187,27 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div id="how-it-works" className="scroll-mt-16">
-            <WorkflowSection data={workflowData} />
-          </div>
-        </div>
+        </section>
 
-        {/* Security Section does not have a nav link, so it doesn't need an ID */}
-        <SecuritySection data={securityFeatures} />
+        {/* Workflow Section */}
+        <section id="how-it-works" className="scroll-mt-20 lg:scroll-mt-16">
+          <WorkflowSection data={workflowData} />
+        </section>
 
-        <div id="pricing" className="scroll-mt-16">
+        {/* Security Section */}
+        <section>
+          <SecuritySection data={securityFeatures} />
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="scroll-mt-20 lg:scroll-mt-16">
           <Pricing />
-        </div>
+        </section>
 
-        <div id="contact" className="scroll-mt-16">
+        {/* Contact */}
+        <section id="contact" className="scroll-mt-20 lg:scroll-mt-16">
           <ContactUs />
-        </div>
+        </section>
       </main>
       <Footer />
     </div>
