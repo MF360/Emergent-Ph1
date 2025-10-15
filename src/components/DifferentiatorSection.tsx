@@ -49,10 +49,10 @@ const DifferentiatorSection: React.FC<DifferentiatorSectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="relative space-y-4">
-                  <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-7 h-7 text-primary" />
+                  <div className="flex items-center justify-center w-14 h-14 bg-indigo-100 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="w-7 h-7 text-indigo-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-indigo-600 transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
@@ -68,16 +68,28 @@ const DifferentiatorSection: React.FC<DifferentiatorSectionProps> = ({
         <div className="mt-16 bg-card rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border border-border">
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">70%</div>
-              <div className="text-sm text-muted-foreground">Reduce Analysis Time</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                70%
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Reduce Analysis Time
+              </div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">2x</div>
-              <div className="text-sm text-muted-foreground">Client Engagement</div>
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+                2x
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Client Engagement
+              </div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400">95%</div>
-              <div className="text-sm text-muted-foreground">User Satisfaction</div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400">
+                95%
+              </div>
+              <div className="text-sm text-muted-foreground">
+                User Satisfaction
+              </div>
             </div>
           </div>
         </div>
