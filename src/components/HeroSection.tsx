@@ -36,8 +36,8 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
-          Intelligent Platform for{" "}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground">
+          AI-driven Portfolio Intelligence for{" "}
           <span className="text-foreground">Mutual Fund Distributors</span>
         </h1>
 
