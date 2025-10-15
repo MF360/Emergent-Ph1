@@ -155,11 +155,11 @@ const Index = () => {
           <HeroSection />
         </div>
 
-        <div id="solutions">
+        <div id="solutions" className="scroll-mt-16">
           <ProblemStatement />
         </div>
 
-        <div id="features">
+        <div id="features" className="scroll-mt-16">
           <Features />
         </div>
 
@@ -186,7 +186,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div id="how-it-works">
+          <div id="how-it-works scroll-mt-16">
             <WorkflowSection data={workflowData} />
           </div>
         </div>
@@ -194,11 +194,11 @@ const Index = () => {
         {/* Security Section does not have a nav link, so it doesn't need an ID */}
         <SecuritySection data={securityFeatures} />
 
-        <div id="pricing">
+        <div id="pricing" className="scroll-mt-16">
           <Pricing />
         </div>
 
-        <div id="contact">
+        <div id="contact" className="scroll-mt-16">
           <ContactUs />
         </div>
       </main>
