@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Logo from "./Logo";
 import {
   Menu,
@@ -10,12 +11,12 @@ import {
   DollarSign,
   Mail,
 } from "lucide-react";
-import { cn } from "../lib/utils";
-import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
-import { Button } from "./ui/button";
+import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { cn } from "../../lib/utils";
+import { Button } from "../ui/button";
 
 const navItems = [
-  { id: "home", label: "HOME", icon: Home },
+  { id: "home", label: "Home", icon: Home },
   { id: "solutions", label: "Solutions", icon: Package },
   { id: "features", label: "Features", icon: CircleDot },
   { id: "how-it-works", label: "How it Works", icon: Workflow },
@@ -275,12 +276,14 @@ const Header: React.FC = () => {
             />
           </div> */}
           <div className="rounded-2xl">
-            <Button
-              variant="ghost"
-              className="text-muted-foreground hover:text-foreground hover:bg-muted"
-            >
-              Log in
-            </Button>
+            <Link to="/sign-up">
+              <Button
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted"
+              >
+                Sign up
+              </Button>
+            </Link>
           </div>
         </div>
       </header>

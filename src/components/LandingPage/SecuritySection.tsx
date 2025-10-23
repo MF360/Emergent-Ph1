@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "../ui/card";
 import { Lock, FileCheck, UserCheck, Eye, Shield } from "lucide-react";
 
 // Map icons for dynamic rendering

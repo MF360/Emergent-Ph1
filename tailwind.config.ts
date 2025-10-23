@@ -31,6 +31,18 @@ export default {
           accent: "#606060" /* Medium-dark grey accent */,
           muted: "#909090" /* Medium grey */,
         },
+        // --- Added from your theme ---
+        "dark-900": "#111111",
+        "dark-700": "#757575",
+        "dark-500": "#aaaaaa",
+        "light-100": "#ffffff",
+        "light-200": "#f5f5f5",
+        "light-300": "#e5e5e5",
+        "light-400": "#cccccc",
+        green: "#007d48",
+        red: "#d33918",
+        orange: "#d37918",
+        // --- End of added colors ---
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -75,6 +87,21 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        jost: ["Jost", "sans-serif"], // Added Jost font
+      },
+      fontSize: {
+        // --- Added from your theme ---
+        "heading-1": ["72px", { lineHeight: "78px", fontWeight: "700" }],
+        "heading-2": ["56px", { lineHeight: "60px", fontWeight: "700" }],
+        "heading-3": ["24px", { lineHeight: "30px", fontWeight: "500" }],
+        lead: ["20px", { lineHeight: "28px", fontWeight: "500" }],
+        body: ["16px", { lineHeight: "24px", fontWeight: "400" }],
+        "body-medium": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+        caption: ["14px", { lineHeight: "20px", fontWeight: "500" }],
+        footnote: ["12px", { lineHeight: "18px", fontWeight: "400" }],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -104,9 +131,6 @@ export default {
         float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse-slow 4s ease-in-out infinite",
         "gradient-shift": "gradient-shift 8s ease infinite",
-      },
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
       },
       letterSpacing: {
         tighter: "-0.05em",
