@@ -146,7 +146,12 @@ const Features = () => {
                   <ul className="space-y-3">
                     {feature.expandedDescription.map((point, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="mt-[6px] h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></span>
+                        <span
+                          className="mt-[6px] h-2 w-2 flex-shrink-0 rounded-full "
+                          style={{ backgroundColor: "#22c55e" }}
+                        ></span>                        
+
+
                         <span className="text-muted-foreground text-sm">
                           {point}
                         </span>
