@@ -29,7 +29,7 @@ const HeroSection = () => {
         }`}
       >
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full bg-primary/10 border border-primary/20 bg-blue-100 text-blue-700">
+          <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full bg-blue-100 border border-blue-200 text-blue-700">
             <Shield className="h-4 w-4" />
             <span>
               AI + CRM + Transactions — The Future of Mutual Fund Distribution
@@ -40,7 +40,10 @@ const HeroSection = () => {
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground">
           AI-driven Portfolio Intelligence for <br />
-          <span className="text-blue-600">Mutual Fund</span> Distributors
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Mutual Fund
+          </span>{" "}
+          Distributors
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
