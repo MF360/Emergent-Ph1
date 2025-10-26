@@ -276,6 +276,16 @@ const Header: React.FC = () => {
             />
           </div> */}
           <div className="rounded-2xl">
+            <Link to="/login">
+              <Button
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted"
+              >
+                Login
+              </Button>
+            </Link>
+          </div>
+          <div className="rounded-2xl">
             <Link to="/signup">
               <Button
                 variant="ghost"

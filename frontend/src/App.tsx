@@ -5,7 +5,6 @@ import axios from "axios";
 import { Toaster } from "./components/ui/sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
-import type { User } from "./lib/types";
 
 // Landing Pages
 import Index from "./pages/Index"; // landing home
@@ -21,6 +20,13 @@ import InvestorDetail from "./pages/InvestorDetail";
 import AIAnalysis from "./pages/AIAnalysis";
 import Settings from "./pages/Settings";
 import Layout from "./components/Layout";
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  // add more fields as needed
+}
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -78,43 +84,25 @@ const App: React.FC = () => {
         <Toaster position="top-right" richColors />
         <BrowserRouter>
           <Routes>
-            {/* Public Landing Pages */}
+            {/* Index Page - Always accessible */}
             <Route path="/" element={<Index />} />
 
             {/* Authentication */}
             <Route
               path="/login"
-              element={
-                !user ? (
-                  <Login onLogin={handleLogin} />
-                ) : (
-                  <Navigate to="/dashboard" />
-                )
-              }
+              element={!user ? <Login onLogin={handleLogin} /> : <Navigate to="/dashboard" />}
             />
             <Route
               path="/signup"
-              element={
-                !user ? (
-                  <Signup onLogin={handleLogin} />
-                ) : (
-                  <Navigate to="/dashboard" />
-                )
-              }
+              element={!user ? <Signup onLogin={handleLogin} /> : <Navigate to="/dashboard" />}
             />
 
             {/* Protected Routes */}
             <Route
-              path="/dashboard"
-              element={
-                user ? (
-                  <Layout user={user} onLogout={handleLogout} />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
+              path="/"
+              element={user ? <Layout user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}
             >
-              <Route index element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />} />
               <Route path="investors" element={<Investors />} />
               <Route path="investors/:id" element={<InvestorDetail />} />
               <Route path="ai-analysis" element={<AIAnalysis />} />
