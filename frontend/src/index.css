@@ -1,82 +1,92 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global font styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Tailwind Base Layer */
 @layer base {
   :root {
-    --background: 0 0% 8%; /* Dark charcoal */
-    --foreground: 0 0% 95%; /* Light grey/white */
-
-    --card: 0 0% 12%; /* Slightly lighter charcoal */
+    /* Dark theme variables */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 95%;
-
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
-
-    --primary: 0 0% 85%; /* Light grey */
-    --primary-foreground: 0 0% 15%; /* Dark charcoal */
-
-    --secondary: 0 0% 18%; /* Medium charcoal */
+    --primary: 0 0% 85%;
+    --primary-foreground: 0 0% 15%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 95%;
-
-    --muted: 0 0% 22%; /* Lighter charcoal */
-    --muted-foreground: 0 0% 70%; /* Medium grey */
-
-    --accent: 0 0% 85%; /* Light grey accent */
+    --muted: 0 0% 22%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 85%;
     --accent-foreground: 0 0% 15%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 0 0% 22%; /* Medium charcoal border */
+    --border: 0 0% 22%;
     --input: 0 0% 22%;
-    --ring: 0 0% 85%; /* Light grey ring */
-
+    --ring: 0 0% 85%;
     --radius: 0.5rem;
   }
 
+  /* Light theme overrides */
   .light {
-    --background: 0 0% 98%; /* Very light grey */
-    --foreground: 0 0% 20%; /* Dark grey */
-
-    --card: 0 0% 96%; /* Light grey card */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 96%;
     --card-foreground: 0 0% 20%;
-
     --popover: 0 0% 96%;
     --popover-foreground: 0 0% 20%;
-
-    --primary: 0 0% 25%; /* Dark grey primary */
-    --primary-foreground: 0 0% 98%; /* Very light grey */
-
-    --secondary: 0 0% 92%; /* Light grey secondary */
+    --primary: 0 0% 25%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 92%;
     --secondary-foreground: 0 0% 25%;
-
-    --muted: 0 0% 88%; /* Medium light grey */
-    --muted-foreground: 0 0% 45%; /* Medium grey */
-
-    --accent: 0 0% 25%; /* Dark grey accent */
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 25%;
     --accent-foreground: 0 0% 98%;
-
-    --border: 0 0% 85%; /* Light grey border */
+    --border: 0 0% 85%;
     --input: 0 0% 90%;
-    --ring: 0 0% 25%; /* Dark grey ring */
+    --ring: 0 0% 25%;
   }
 
+  /* Apply border to all elements */
   * {
     @apply border-border;
   }
 
+  /* Body styling */
   body {
     @apply bg-background font-inter text-foreground antialiased;
     letter-spacing: -0.025em;
   }
 
+  /* Text selection */
   ::selection {
     @apply bg-primary text-primary-foreground;
   }
+}
 
+/* Emergent / Cosmic Utilities */
+@layer base {
   .cosmic-gradient {
     background: linear-gradient(
       135deg,
@@ -100,19 +110,15 @@
   .cosmic-glow::before {
     content: "";
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
+    inset: -20px;
     background: radial-gradient(
       circle at center,
       rgba(255, 255, 255, 0.1) 0%,
       transparent 70%
     );
-    z-index: -1;
     border-radius: inherit;
+    z-index: -1;
   }
-
   .light .cosmic-glow::before {
     background: radial-gradient(
       circle at center,
@@ -138,10 +144,6 @@
       linear-gradient(90deg, rgba(64, 64, 64, 0.08) 1px, transparent 1px);
   }
 
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .cosmic-glass {
     @apply backdrop-blur-sm bg-card border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)];
   }
@@ -161,11 +163,7 @@
   .nav-pill-item {
     @apply px-4 py-2 text-sm rounded-full transition-colors;
   }
-
-  .nav-pill-item:hover {
-    @apply bg-accent text-accent-foreground;
-  }
-
+  .nav-pill-item:hover,
   .nav-pill-item.active {
     @apply bg-accent text-accent-foreground;
   }
@@ -187,6 +185,7 @@
     filter: drop-shadow(0 0 10px rgba(64, 64, 64, 0.3));
   }
 
+  /* Task card animations */
   .task-card {
     @apply transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-primary/30;
   }
