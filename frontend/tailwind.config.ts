@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -7,6 +8,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./public/index.html", // from Emergent
   ],
   prefix: "",
   theme: {
@@ -19,30 +21,17 @@ export default {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        // --- Emergent colors ---
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        cosmic: {
-          dark: "#404040" /* Medium grey for light mode */,
-          darker: "#303030" /* Darker grey for light mode */,
-          light: "#f0f0f0" /* Light grey for light mode */,
-          accent: "#606060" /* Medium-dark grey accent */,
-          muted: "#909090" /* Medium grey */,
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
-        // --- Added from your theme ---
-        "dark-900": "#111111",
-        "dark-700": "#757575",
-        "dark-500": "#aaaaaa",
-        "light-100": "#ffffff",
-        "light-200": "#f5f5f5",
-        "light-300": "#e5e5e5",
-        "light-400": "#cccccc",
-        green: "#007d48",
-        red: "#d33918",
-        orange: "#d37918",
-        // --- End of added colors ---
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -50,10 +39,6 @@ export default {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -63,13 +48,19 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -81,6 +72,25 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+
+        // --- Additional custom colors ---
+        cosmic: {
+          dark: "#404040",
+          darker: "#303030",
+          light: "#f0f0f0",
+          accent: "#606060",
+          muted: "#909090",
+        },
+        "dark-900": "#111111",
+        "dark-700": "#757575",
+        "dark-500": "#aaaaaa",
+        "light-100": "#ffffff",
+        "light-200": "#f5f5f5",
+        "light-300": "#e5e5e5",
+        "light-400": "#cccccc",
+        green: "#007d48",
+        red: "#d33918",
+        orange: "#d37918",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,7 +99,7 @@ export default {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        jost: ["Jost", "sans-serif"], // Added Jost font
+        jost: ["Jost", "sans-serif"],
       },
       fontSize: {
         // --- Added from your theme ---
@@ -137,5 +147,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
