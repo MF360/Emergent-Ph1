@@ -5,6 +5,7 @@ import axios from "axios";
 import { Toaster } from "./components/ui/sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
+import type { User } from "./lib/types";
 
 // Landing Pages
 import Index from "./pages/Index"; // landing home
@@ -20,13 +21,6 @@ import InvestorDetail from "./pages/InvestorDetail";
 import AIAnalysis from "./pages/AIAnalysis";
 import Settings from "./pages/Settings";
 import Layout from "./components/Layout";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  // add more fields as needed
-}
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;

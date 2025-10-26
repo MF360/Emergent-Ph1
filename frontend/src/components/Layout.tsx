@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
+import type { User } from "../lib/types";
 import {
   LayoutDashboard,
   Users,
@@ -13,11 +14,6 @@ import {
 } from "lucide-react";
 
 // Define the user and component prop types
-interface User {
-  full_name?: string;
-  role?: string;
-}
-
 interface LayoutProps {
   user?: User;
   onLogout: () => void;
