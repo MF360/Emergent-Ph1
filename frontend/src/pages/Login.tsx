@@ -15,28 +15,20 @@ import axios from "axios";
 import { toast } from "sonner";
 import { Eye, EyeOff, TrendingUp } from "lucide-react";
 
-// Use import.meta.env for Vite
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-// Props interface
-interface SignupProps {
+// Define types for props
+interface LoginProps {
   onLogin: (user: any, token: string) => void;
 }
 
-// Type for API response
-interface SignupResponse {
-  user: any;
-  token: string;
-}
+const BACKEND_URL =
+  import.meta.env.VITE_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
-const Signup: React.FC<SignupProps> = ({ onLogin }) => {
-  const [fullName, setFullName] = useState<string>("");
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,25 +36,18 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post<SignupResponse>(`${API}/auth/signup`, {
-        full_name: fullName,
+      const response = await axios.post(`${API}/auth/login`, {
         email,
         password,
       });
 
-      toast.success(
-        "Account created successfully! 50 dummy investors have been seeded."
-      );
+      toast.success("Login successful!");
       onLogin(response.data.user, response.data.token);
       navigate("/dashboard");
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
-        toast.error(
-          error.response?.data?.detail || "Signup failed. Please try again."
-        );
-      } else {
-        toast.error("An unexpected error occurred.");
-      }
+    } catch (error: any) {
+      toast.error(
+        error.response?.data?.detail || "Login failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -70,10 +55,10 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
 
   return (
     <div
-      data-testid="signup-page"
+      data-testid="login-page"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
     >
-      <Card data-testid="signup-card" className="w-full max-w-md glass-effect">
+      <Card data-testid="login-card" className="w-full max-w-md glass-effect">
         <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-4">
             <div className="h-16 w-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
@@ -84,27 +69,11 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
             MF360
           </CardTitle>
           <CardDescription className="text-base">
-            Create your MFD account
+            Investor CRM & AI Analysis
           </CardDescription>
         </CardHeader>
-
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
-            {/* Full Name */}
-            <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
-              <Input
-                id="fullName"
-                data-testid="fullname-input"
-                type="text"
-                placeholder="John Doe"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-            </div>
-
-            {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -117,8 +86,6 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
                 required
               />
             </div>
-
-            {/* Password */}
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <div className="relative">
@@ -130,7 +97,6 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  minLength={6}
                 />
                 <button
                   type="button"
@@ -145,28 +111,25 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
                   )}
                 </button>
               </div>
-              <p className="text-xs text-gray-500">Minimum 6 characters</p>
             </div>
           </CardContent>
-
-          {/* Footer */}
           <CardFooter className="flex flex-col space-y-4">
             <Button
-              data-testid="signup-button"
+              data-testid="login-button"
               type="submit"
               className="w-full bg-indigo-600 hover:bg-indigo-700"
               disabled={loading}
             >
-              {loading ? "Creating account..." : "Sign Up"}
+              {loading ? "Signing in..." : "Sign In"}
             </Button>
             <div className="text-sm text-center text-gray-600">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link
-                data-testid="login-link"
-                to="/login"
+                data-testid="signup-link"
+                to="/signup"
                 className="text-indigo-600 hover:text-indigo-700 font-medium"
               >
-                Sign in
+                Sign up
               </Link>
             </div>
           </CardFooter>
@@ -176,4 +139,4 @@ const Signup: React.FC<SignupProps> = ({ onLogin }) => {
   );
 };
 
-export default Signup;
+export default Login;
