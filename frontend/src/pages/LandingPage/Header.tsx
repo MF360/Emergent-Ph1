@@ -11,9 +11,9 @@ import {
   DollarSign,
   Mail,
 } from "lucide-react";
-import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "../../components/ui/toggle-group";
 import { cn } from "../../lib/utils";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 
 const navItems = [
   { id: "home", label: "Home", icon: Home },
@@ -276,7 +276,7 @@ const Header: React.FC = () => {
             />
           </div> */}
           <div className="rounded-2xl">
-            <Link to="/sign-up">
+            <Link to="/signup">
               <Button
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground hover:bg-muted"

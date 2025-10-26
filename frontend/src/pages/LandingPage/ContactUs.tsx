@@ -1,7 +1,7 @@
 import React, { useState, type ChangeEvent, type FormEvent } from "react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Card, CardContent } from "../ui/card";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Card, CardContent } from "../../components/ui/card";
 import { ArrowRight, Mail, Phone, Building } from "lucide-react";
 
 interface FormData {
